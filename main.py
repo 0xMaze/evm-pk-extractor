@@ -1,4 +1,4 @@
-from web3 import Web3, Account
+from web3 import Account, Web3
 
 
 class Extractor:
@@ -29,10 +29,13 @@ class Extractor:
             with open(file_path, "w") as file:
                 for string in string_array:
                     file.write(string + "\n")
+                return True
         except FileNotFoundError as e:
             print(f"File '{file_path}' not found.")
+            return False
         except Exception as e:
             print(f"Encountered an error while writing to a TXT file '{file_path}': {e}.")
+            return False
 
 
 def main() -> None:
